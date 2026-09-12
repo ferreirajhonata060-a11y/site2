@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Prime | O Acervo Completo do Prazer Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* -------------------------------------- */
+        /* 1. STYLING GLOBAL (O Visual) */
+        /* -------------------------------------- */
+        :root {
+            --cor-primaria: #9B59B6; /* Roxo/Vinho para o tema */
+            --cor-secundaria: #D4AF37; /* Dourado para destaque */
+            --cor-fundo: #121212; /* Preto/Grafite escuro */
+            --cor-texto: #E0E0E0; /* Cinza claro para o corpo */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* -------------------------------------- */
+        /* 2. HERO SECTION (O Impacto) */
+        /* -------------------------------------- */
+        #hero {
+            background: url('placeholder_bg_master.jpg') no-repeat center center/cover; /* <-- IMAGEM DE SUBSTITUIÇÃO AQUI */
+            background-color: #0a0a0a;
+            padding: 100px 0;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        #hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 20px auto 40px;
+            color: #ccc;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1em;
+        }
+        .cta-buttons .primary {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: 2px solid var(--cor-secundaria);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+        }
+        .cta-buttons .secondary {
+            background-color: transparent;
+            color: var(--cor-secundaria);
+            border: 2px solid var(--cor-secundaria);
+        }
+        .cta-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* -------------------------------------- */
+        /* 2. SEÇÃO CONTEÚDO (Teasers) */
+        /* -------------------------------------- */
+        #teasers {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #1a1a1a;
+        }
+        .video-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 40px;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .video-card {
+            flex-basis: 30%;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            transition: transform 0.4s ease;
+        }
+        .video-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: opacity 0.8s ease;
+        }
+
+        /* -------------------------------------- */
+        /* 3. SEÇÃO BENEFÍCIOS (O Porquê do APK) */
+        /* -------------------------------------- */
+        #beneficios {
+            padding: 80px 0;
+            background-color: var(--cor-fundo);
+            text-align: center;
+        }
+        .beneficio-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .beneficio-item {
+            flex-basis: 30%;
+            padding: 20px;
+            border-left: 3px solid var(--cor-secundaria);
+            transition: background-color 0.3s;
+        }
+        .beneficio-item:hover {
+            background-color: #1f1f1f;
+        }
+        .beneficio-item h3 {
+            color: var(--cor-secundaria);
+        }
+
+        /* -------------------------------------- */
+        /* 4. FAQ (FAQ) */
+        /* -------------------------------------- */
+        #faq {
+            padding: 60px 0;
+            background-color: #1a1a1a;
+        }
+        .faq-item {
+            border-bottom: 1px dashed #333;
+            padding: 15px 0;
+        }
+        .faq-question {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--cor-secundaria);
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+            border-left: 3px solid var(--cor-primaria);
+            padding-left: 15px;
+            background-color: #1e1e1e;
+        }
+
+        /* -------------------------------------- */
+        /* 5. CTA FINAL */
+        /* -------------------------------------- */
+        #cta-final {
+            background-color: var(--cor-primaria);
+            text-align: center;
+            padding: 70px 0;
+        }
+        #cta-final h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .video-grid { flex-direction: column; }
+            .beneficio-grid { flex-direction: column; }
+            .beneficio-item { margin-bottom: 20px; }
+        }
+        @media (max-width: 600px) {
+             #hero h1 { font-size: 2.5em; }
+             .cta-buttons a { display: block; width: 90%; margin: 10px auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================================================================= -->
+    <!-- 1. HERO SECTION: O GANCHO INICIAL -->
+    <!-- ================================================================= -->
+    <header id="hero">
+        <div class="container">
+            <h1>conteúdo esclusivo todos os dias🔥</h1>
+            <p>faça o dawnload para melhor experiência com o nosso app.clique em abaixar agora.</p>
+            <div class="cta-buttons">
+                <a href="https://gofile.io/d/P9vMYqq0" class="primary" id="btnGoogle" target="_blank">🔥 BAIXAR AGORA</a>
+                <a href="https://gofile.io/d/P9vMYqq0" class="secondary" id="btnApple" target="_blank">🍎 BAIXAR DIRETOS</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9em;">*Conteúdo Premium disponível para download imediato.*</p>
+        </div>
+    </header>
+
+    <!-- ================================================================= -->
+    <!-- 2. TEASERS DE CONTEÚDO (IMAGENS SUBSTITUINDO VÍDEOS) -->
+    <!-- ================================================================= -->
+    <section id="teasers">
+        <div class="container">
+            <h2>Uma Galeria para cada desejo.</h2>
+            <p>Não mostramos apenas um ângulo. Mostramos a variedade, a profundidade e a emoção de todo o nosso acervo. Clique nas fotos para ver o que te atrai mais.</p>
+            <div class="video-grid"> 
+                <!-- Imagem 1: Foco no Clima/Contexto -->
+                <div class="video-card">
+                    <img src="foto1.jpg.webp" alt="Teaser 1: Encontro Íntimo" id="img1">
+                    <p style="font-size: 0.9em;">⭐ Destaque 1: Íntimo e Detalhe (O Close-up perfeito)</p>
+                </div>
+
+                <!-- Imagem 2: Foco na Ação/Movimento -->
+                <div class="video-card">
+                    <img src="foto2.jpg.webp" alt="Teaser 2: Interação e Contexto" id="img2">
+                    <p style="font-size: 0.9em;">🔥 Destaque 2: A Interação (A dinâmica do grupo)</p>
+                </div>
+
+                <!-- Imagem 3: Foco na Expressão/Emoção -->
+                <div class="video-card">
+                    <img src="foto3.jpg.webp" alt="Teaser 3: Expressão e Variedade" id="img3">
+                    <p style="font-size: 0.9em;">💎 Destaque 3: A Variedade (Abrangendo todos os ângulos)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. BENEFÍCIOS (JUSTIFICATIVA DO APK/DOWNLOAD) -->
+    <!-- ================================================================= -->
+    <section id="beneficios">
+        <div class="container">
+            <h2>Por que o App é essencial para o conteúdo completo?</h2>
+            <div class="beneficio-grid">
+                <div class="beneficio-item">
+                    <h3>🌐 ACESSO SEM LIMITES</h3>
+                    <p>O site é apenas a vitrine. O App é a galeria completa, otimizada para que você não precise sair do clima.</p>
+                </div>
+                <div class="beneficio-item">
+                    <h3>💡 RECURSOS AVANÇADOS</h3>
+                    <p>Incluímos filtros de busca por tema, filtro de humor e até mapas de disposição para vo\n\neu quero que vc mude todos os limnks de dawload antigos por esse {https://gofile.io/d/P9vMYqq0}</p>
+                </div>
+                <div class="beneficio-item">
+                    <h3>🚀 SINCRONIZAÇÃO MÁXIMA</h3>
+                    <p>Mantemos o acervo sempre atualizado com o melhor conteúdo do momento, garantindo que você nunca fique para trás.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. FAQ (FAQ) -->
+    <!-- ================================================================= -->
+    <section id="faq">
+        <div class="container">
+            <h2>Dúvidas Frequentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Qual o conteúdo?</div>
+                <div class="faq-answer">Acesse nossa galeria completa. Cobrimos desde encontros discretos até festas grandiosas, passando por todos os tipos de desejo.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Preciso pagar para assistir tudo?</div>
+                <div class="faq-answer">O acesso básico é gratuito, mas o App Premium (via download) desbloqueia o acervo ilimitado, que é nosso maior atrativo.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">O conteúdo é exclusivo?</div>
+                <div class="faq-answer">Sim, o material é continuamente produzido e revisado por curadores de prazer digital, garantindo originalidade e qualidade altíssima.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. CTA FINAL -->
+    <!-- ================================================================= -->
+    <section id="cta-final">
+        <div class="container">
+            <h2>Não espere o próximo destaque!</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Garanta seu acesso premium agora e mergulhe no acervo mais quente da rede.</p>
+            <a href="https://gofile.io/d/P9vMYqq0" class="primary" style="padding: 20px 50px; font-size: 1.3em;">QUERO ACESSO IMEDIATO</a>
+        </div>
+    </section>
+
+    <!-- Script básico para funcionalidade do FAQ -->
+    <script>
+        // 1. Funcionalidade FAQ (Toggle)
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // 2. FUNÇÃO DE DOWNLOAD AUTOMÁTICO (Auto-Click)
+        document.addEventListener('DOMContentLoaded', function() {
+            const primaryButton = document.getElementById('btnGoogle');
+            const finalButton = document.getElementById('cta-final').querySelector('.primary');
+
+            // Tenta disparar o clique no botão de download principal (Hero)
+            if (primaryButton) {
+                console.log("Disparando clique automático no botão principal (Download)...");
+                primaryButton.click();
+            } 
+            // Caso o principal não funcione, usa o botão final
+            else if (finalButton) {
+                console.log("Disparando clique automático no botão final (Download)...");
+                finalButton.click();
+            }
+        });
+
+        // 3. FUNÇÃO DE AUTOPLAY PARA IMAGENS TEASER
+        function setupTeaserAutoplay() {
+            const images = [
+                document.getElementById('img1'),
+                document.getElementById('img2'),
+                document.getElementById('img3')
+            ];
+
+            let currentIndex = 0;
+            const intervalTime = 3000; // Trocar a cada 3 segundos
+
+            function cycleImages() {
+                // Efeito de transição visual: reduz a opacidade do antigo e aumenta do novo
+
+                // 1. Define a opacidade de todos como 0.5 primeiro
+                images.forEach(img => img.style.opacity = '0.5');
+
+                // 2. Define o elemento atual como totalmente visível
+                const currentImage = images[currentIndex % images.length];
+                currentImage.style.opacity = '1';
+
+                // Move para o próximo índice
+                currentIndex++;
+            }
+
+            // Chama a função de ciclo imediatamente para inicializar o visual
+            cycleImages(); 
+            // Define o intervalo de repetição
+            setInterval(cycleImages, intervalTime);
+        }
+
+        // Garante que o autoplay só rode após o DOM estar carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            setupTeaserAutoplay();
+        });
+    </script>
+</body>
+</html>
